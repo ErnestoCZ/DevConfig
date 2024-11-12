@@ -16,6 +16,17 @@ services:
       - postgres_data:/var/lib/postgresql/data
     network_mode: host
 
+  eclipse-mosquitto:
+    image: eclipse-mosquitto
+    container_name: mosquitto_service
+    ports:
+      - "1883:1883"
+    volumes:
+      - mosquitto_data:/mosquitto/data
+      - ./mosquitto/log:/mosquitto/log
+      - ./mosquitto/config:/mosquitto/config
+
+
   keycloak:
     image: quay.io/keycloak/keycloak:25.0.6
     container_name: keycloak_service
@@ -54,6 +65,9 @@ volumes:
     driver: local
   keycloak_data:
     name: keycloak_data
+    driver: local
+  mosquitto_data:
+    name: mosquitto_data
     driver: local
 networks:
   backend:

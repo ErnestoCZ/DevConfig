@@ -2,7 +2,7 @@ name: administation-app-be
 
 services:
   db:
-    image: postgres
+    image: postgres:16
     container_name: postgres_service
     environment:
       POSTGRES_DB: postgres

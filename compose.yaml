@@ -115,7 +115,6 @@ services:
       - SYS_NICE
     restart: unless-stopped
 
-
 volumes:
   postgres_data:
     name: postgres_data
@@ -133,8 +132,10 @@ volumes:
     name: grafana_data
     driver: local
 
+
 networks:
   backend:
     name: backend
     driver: bridge
     # internal: true
+
